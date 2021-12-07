@@ -3,14 +3,14 @@ Config = {}
 Config.PaymentType = 'cash'   -- 'cash' or 'bank' What account to use for payment
 Config.DriversTest = true     --False = Do not have to take the drivers test to get a Drivers License(will give drivers_license after 
                               --questionairre.) True = Requires you to take Drivers Test to get driver_license
-Config.SpeedMultiplier = 2.236936  --KM/H = 3.6 MPH = 2.236936
-Config.MaxErrors       = 1
+Config.SpeedMultiplier = 3.6  --KM/H = 3.6 MPH = 2.236936
+Config.MaxErrors       = 4
 Config.UseTarget       = false   --(recommend leaving false until future update) Gotta fix the target menu to auto change without having to restart qb-target. True will use qb-target instead of qb-menu False will use qb-menu
 Config.Ped = 's_m_y_cop_01' --Will Spawn this ped for qb-target if Config.UseTarget is true
 
 Config.Amount = {
-    ['theoretical'] = 50,       --theoretical test payment amount(If Config.DriversTest = false then the theoritical test will go to the drivers test amount.)
-    ['driving']     = 150,       --Drivers Test Payment Amount
+    ['theoretical'] = 250,       --theoretical test payment amount(If Config.DriversTest = false then the theoritical test will go to the drivers test amount.)
+    ['driving']     = 1500,       --Drivers Test Payment Amount
     ['cdl']         = 250       --CDL Test Payment Amount
 }
 
@@ -25,7 +25,7 @@ Config.Blip = {
   Color = 1,
   Scale = 0.8,
   ShortRange = true,
-  BlipName = 'DMV School'
+  BlipName = 'Fahrschule'
 }
 
 Config.VehicleModels = {
@@ -34,9 +34,9 @@ Config.VehicleModels = {
 }
 
 Config.SpeedLimits = {
-  residence = 50,
+  residence = 60,
   town      = 80,
-  freeway   = 120
+  freeway   = 140
 }
 
 Config.CheckPoints = {
@@ -44,7 +44,7 @@ Config.CheckPoints = {
   {
     Pos = {x = 255.139, y = -1400.731, z = 29.537},
     Action = function(playerPed, vehicle, setCurrentZoneType)
-      DrawMissionText('go to the next point! Speed Limit: ~y~' .. Config.SpeedLimits['residence'] .. 'mph', 5000)
+      DrawMissionText('go to the next point! Speed Limit: ~y~' .. Config.SpeedLimits['residence'] .. 'kmh', 5000)
     end
   },
 
@@ -77,7 +77,7 @@ Config.CheckPoints = {
       setCurrentZoneType('town')
 
       Citizen.CreateThread(function()
-        DrawMissionText('~r~Stop~s~ and look ~y~left~s~. Speed Limit:~y~ ' .. Config.SpeedLimits['town'] .. 'mph', 5000)
+        DrawMissionText('~r~Stop~s~ and look ~y~left~s~. Speed Limit:~y~ ' .. Config.SpeedLimits['town'] .. 'kmh', 5000)
         PlaySound(-1, 'RACE_PLACED', 'HUD_AWARDS', 0, 0, 1)
         FreezeEntityPosition(vehicle, true)
         Citizen.Wait(6000)
@@ -132,7 +132,7 @@ Config.CheckPoints = {
 
       setCurrentZoneType('freeway')
 
-      DrawMissionText('it\'s time to drive on the highway! Speed Limit:~y~ ' .. Config.SpeedLimits['freeway'] .. 'mph', 5000)
+      DrawMissionText('it\'s time to drive on the highway! Speed Limit:~y~ ' .. Config.SpeedLimits['freeway'] .. 'kmh', 5000)
       PlaySound(-1, 'RACE_PLACED', 'HUD_AWARDS', 0, 0, 1)
     end
   },
@@ -164,7 +164,7 @@ Config.CheckPoints = {
 
       setCurrentZoneType('town')
 
-      DrawMissionText('entered town, pay attention to your speed! Speed Limit: ~y~' .. Config.SpeedLimits['town'] .. 'mph', 5000)
+      DrawMissionText('entered town, pay attention to your speed! Speed Limit: ~y~' .. Config.SpeedLimits['town'] .. 'kmh', 5000)
     end
   },
 
