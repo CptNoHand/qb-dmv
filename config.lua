@@ -4,7 +4,7 @@ Config.PaymentType = 'cash'   -- 'cash' or 'bank' What account to use for paymen
 Config.DriversTest = true     --False = Do not have to take the drivers test to get a Drivers License(will give drivers_license after 
                               --questionairre.) True = Requires you to take Drivers Test to get driver_license
 Config.SpeedMultiplier = 3.6  --KM/H = 3.6 MPH = 2.236936
-Config.MaxErrors       = 4
+Config.MaxErrors       = 5
 Config.UseTarget       = false   --(recommend leaving false until future update) Gotta fix the target menu to auto change without having to restart qb-target. True will use qb-target instead of qb-menu False will use qb-menu
 Config.Ped = 's_m_y_cop_01' --Will Spawn this ped for qb-target if Config.UseTarget is true
 
